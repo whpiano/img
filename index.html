@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>找到了</title>
+    <meta name="description" content="分享互联网上有用的资源和信息，有偿代找各类资源。">
+    <meta name="keywords" content="找到了,找代理,免费ss,代找资源,免费翻墙,V2ray,SSR,torjan">
+    <link rel="icon" href="" type="image/x-icon" id="page_favionc">
+    <link rel="alternate icon" type="image/png" href="icon.png">
+    <link href="static/css/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="menu"><i></i></div>
+    <div class="list closed">
+        <div id="app">
+            <ul>
+                <li class="title">爱分享</li>
+                <li><a rel="nofollow" href="https://v2.freeip.workers.dev/https/zh.wikipedia.org" target="_blank">Wikipedia</a></li>
+                <li><a rel="nofollow" href="https://v2.freeip.workers.dev/https/web.telegram.org" target="_blank">Telegram</a></li>
+                <li><a rel="nofollow" href="https://v2.freeip.workers.dev/https/t.me/s/socks5list" target="_blank">电报代理</a></li>
+                <li><a rel="nofollow" href="https://v2.freeip.workers.dev:443/https/instagram.com" target="_blank">Instagram</a></li>
+                <li><a rel="nofollow" href="https://v2.freeip.workers.dev:443/https/twitter.com" target="_blank">Twitter</a></li>
+                <li><a rel="nofollow" href="https://v2.freeip.workers.dev:443/https/www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a rel="nofollow" href="https://v2.freeip.workers.dev:443/https/www.youtube.com/" target="_blank">Youtube</a></li>
+                <li><a rel="nofollow" href="https://tv.syrme.top/" target="_blank">简影</a></li>
+                <li><a rel="nofollow" href="https://v2.freeip.workers.dev:443/https/github.com/" target="_blank">Github</a></li>
+                <li><a rel="nofollow" href="https://gezhong.vip/" target="_blank">Google Drive搜索</a></li>
+            </ul>
+        </div>
+    </div>
+ <div id="tp-weather-widget" class="mywth"></div>    
+    <div id="content">
+        <div class="con">
+            <div class="shlogo"></div>
+            <div class="sou">
+                <div class="search">
+                    <input id="txt" class="wd" type="text" placeholder="输入关键字，回车/Enter搜索" autofocus>
+                    <button id="search-btn"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></button>
+                </div>                
+            </div>
+            <div class="soul">
+                <span id="sentence" style="font-size: 1.5rem;"></span>
+                <script src="static/js/js.js"></script>
+            </div>
+      			<div class="ds">
+      				<div class="dsbtn">
+        				<button class="qrcode_button" value="#zhifubao"><i style="background-image: url(https://i.loli.net/2019/11/20/IvzWixCAKqscodg.png);"></i>支付宝</button>
+        				<button class="qrcode_button" value="#weixin"><i style="background-image: url(https://i.loli.net/2019/11/20/LxYPos5hreuXSR6.png);"></i>微信</button>
+      				</div>
+              <br> <button><a href="https://zdl.im" target="_blank">帮找资源</a></button><br>
+      			</div>
+        </div>
+        <div class="foot">© 2016-2020 <a href="https://zdl.im">找到了</a> . All rights reserved.</div>
+    </div>
+<div class="qrcode" id="zhifubao">
+    <img id="image" width="100%" height="100%" src="https://i.loli.net/2019/11/20/KYck6t4L9jsA7Z3.jpg">
+</div>
+<div class="qrcode" id="weixin">
+    <img id="image" width="100%" height="100%" src="https://i.loli.net/2019/11/20/1gC5IyQorzF8XWV.jpg">
+</div>
+<script>
+  var thisSearch = 'https://v2.freeip.workers.dev:443/https/www.google.com/search?q=';
+  $('#txt').keydown(function(ev){
+      if(ev.keyCode==13){
+          window.open(thisSearch + $('#txt').val(), "_blank")
+      }
+  })
+  $("#search-btn").click(function(){
+  var textValue = $('#txt').val();
+  if(textValue != ''){
+      window.open(thisSearch + textValue, "_blank")
+  }
+  });
+  $(function() {
+    $(".qrcode_button").click(function() {
+        $($(this).val()).fadeIn("slow");
+    });
+
+    $(".qrcode").click(function() {
+        $('#' + $(this)[0].id).fadeOut("slow");
+    })
+});
+</script>
+<script>
+    $("#menu").click(function(event) {
+        $(this).toggleClass('on');
+        $(".list").toggleClass('closed');
+    });
+    $("#content").click(function(event) {
+        $(".on").removeClass('on');
+        $(".list").addClass('closed');
+    });
+</script>
+</body>
+</html>
