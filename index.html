@@ -18,13 +18,6 @@
     <div class="list closed">
         <div id="app">
             <ul>
-                <li class="title">说说</li>
-                <li v-for="item in getdata">
-                    <img :src="{{ item.img }}">
-                    {{ item.content }}@{{ item.ctime }}
-                <li>
-            </ul>
-            <ul>
                 <li class="title">爱分享</li>
                 <li><a rel="nofollow" href="https://v2.freeip.workers.dev/https/zh.wikipedia.org" target="_blank">Wikipedia</a></li>
                 <li><a rel="nofollow" href="https://v2.freeip.workers.dev/https/web.telegram.org" target="_blank">Telegram</a></li>
@@ -50,15 +43,17 @@
                 </div>                
             </div>
             <div class="soul">
-                <span id="sentence" style="font-size: 1.5rem;"></span>
-                <script src="static/js.js"></script>
+                <span style="font-size: 1.5rem;"></span>
             </div>
       			<div class="ds">
       				<div class="dsbtn">
         				<button class="qrcode_button" value="#zhifubao"><i style="background-image: url(https://i.loli.net/2019/11/20/IvzWixCAKqscodg.png);"></i>支付宝</button>
         				<button class="qrcode_button" value="#weixin"><i style="background-image: url(https://i.loli.net/2019/11/20/LxYPos5hreuXSR6.png);"></i>微信</button>
       				</div>
-              <br> <button><a href="https://zdl.im" target="_blank">帮找资源</a></button><button><a href="https://buy.pptp.ink" target="_blank">代理IP购买</a></button><br>
+                    <br> 
+                    <a href="https://zdl.im" target="_blank">帮找资源</a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://buy.pptp.ink" target="_blank">代理IP购买</a>&nbsp;&nbsp;&nbsp;
+                    <br>
       			</div>
         </div>
         <div class="foot">© 2016-2020 <a href="https://zdl.im">找到了</a> . All rights reserved.</div>
@@ -69,26 +64,6 @@
 <div class="qrcode" id="weixin">
     <img id="image" width="100%" height="100%" src="https://i.loli.net/2019/11/20/1gC5IyQorzF8XWV.jpg">
 </div>
-<script>
-    var vm = new Vue({
-            el: '#app', 
-            data:
-            {
-                getdata:'',
-            },
-//             methods: 
-//             {
-//                 http(){axios.get('https://haoyangmao.herokuapp.com/http').then(res=>(this.getdata = res.data))},
-//                 putong(){axios.get('https://haoyangmao.herokuapp.com/putong').then(res=>(this.getdata = res.data))},
-//                 https(){axios.get('https://haoyangmao.herokuapp.com/https').then(res=>(this.getdata = res.data))},
-//                 gaoni(){axios.get('https://haoyangmao.herokuapp.com/gaoni').then(res=>(this.getdata = res.data))},
-//             },
-            mounted()
-            {
-                axios.get('https://inote.zdl.im/hi').then(response=>(this.getdata = response.data));
-            },
-        });
-</script>
 <script>
   var thisSearch = 'https://v2.freeip.workers.dev:443/https/www.google.com/search?q=';
   $('#txt').keydown(function(ev){
