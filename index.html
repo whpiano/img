@@ -20,7 +20,8 @@
             <ul>
                 <li class="title">说说</li>
                 <li v-for="item in getdata">
-                    {{ item.content }}
+                    <img :src="{{ item.img }}">
+                    {{ item.content }}@{{ item.ctime }}
                 <li>
             </ul>
             <ul>
@@ -84,7 +85,7 @@
 //             },
             mounted()
             {
-                axios.get('https://inote.zdl.im/say').then(response=>(this.getdata = response.data));
+                axios.get('https://inote.zdl.im/hi').then(response=>(this.getdata = response.data));
             },
         });
 </script>
