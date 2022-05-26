@@ -81,7 +81,7 @@ a {
     width: 480px;
     height: 120px;
     margin: 20px auto 50px auto;
-    background: url(../googlelogo.png) no-repeat center;
+    background: url(./googlelogo.png) no-repeat center;
 }
 
 .con .shlogo a {
