@@ -1,6 +1,7 @@
 {
 // spider
-"spider":"https://pan.tigerroot.cn/down.php/cb70051a538edd59a5a14597858d9296.jar&qiaoji66",
+//"spider":"https://pan.tigerroot.cn/down.php/cb70051a538edd59a5a14597858d9296.jar&qiaoji66",
+"spider":"https://img.0728.im/q.jar",
 
 // 直播
 "lives":[{"group":"redirect","channels":[{"name":"live","urls":["proxy://do=live&type=txt&ext=aHR0cDovLzl4aTRvLnRrL3N1Yi9teXR2LnR4dA=="]}]}],
