@@ -12,14 +12,12 @@
         <link rel="icon" type="image/x-icon" href="ico.jpg">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-        <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
-        <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+        <script src="assets/js/vue.min.js"></script>
+        <script src="assets/js/axios.min.js"></script>
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Header -->
 					<header id="header">
 						<h1><a href=""><strong>随手拍</strong> by iPhone 12 mini</a></h1>
@@ -39,53 +37,50 @@
 						</article>
 					</div>
 				<!-- Footer -->
-					<footer id="footer" class="panel">
-						<div class="inner split">
-							<div>
-								<section>
-									<h2>随手拍</h2>
-									<p>使用iPhone捷径指令上传图片至GitHub，在deta.sh上搭建fastapi提供接口发布图片地址及配文到此页面。</p>
-								</section>
-								<section>
-									<h2>Follow me on ...</h2>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-										<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-									</ul>
-								</section>
-								<p class="copyright">
-									&copy; <a href="https://zdl.im">Sky</a>. Design: <a href="http://html5up.net" target="_blank" >HTML5 UP</a>.
-								</p>
-							</div>
+				<footer id="footer" class="panel">
+					<div class="inner split">
+						<div>
+							<section>
+								<h2>随手拍</h2>
+								<p>使用iPhone捷径指令上传图片至GitHub，在deta.sh上搭建fastapi提供接口发布图片地址及配文到此页面。</p>
+							</section>
+							<section>
+								<h2>Follow me on ...</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</section>
+							<p class="copyright">
+								&copy; <a href="https://zdl.im">Sky</a>. Design: <a href="http://html5up.net" target="_blank" >HTML5 UP</a>.
+							</p>
 						</div>
-					</footer>
-
+					</div>
+				</footer>
 			</div>
-
 		<!-- Scripts -->
-            <script>
-                var vm = new Vue({
-                    el: '#main', 
-                    data:
-                    {
-                        getdata:'',
-                    },
-                    mounted()
-                    {
-                        axios.get('https://inote.zdl.im/hi').then(response=>(this.getdata = response.data));
-                    },
-                });
-            </script>
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/jquery.poptrox.min.js"></script>
-            <script src="assets/js/browser.min.js"></script>
-            <script src="assets/js/breakpoints.min.js"></script>
-            <script src="assets/js/util.js"></script>
-            <script src="assets/js/main.js"></script>
-
-            </body>
+		<script>
+			var vm = new Vue({
+				el: '#main', 
+				data:
+				{
+					getdata:'',
+				},
+				mounted()
+				{
+					axios.get('https://inote.zdl.im/hi').then(response=>(this.getdata = response.data));
+				},
+			});
+		</script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
 </html>
