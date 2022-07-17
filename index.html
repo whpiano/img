@@ -31,8 +31,8 @@
 				<!-- Main -->
 					<div id="main">
 						<article  v-for="item in getdata" class="thumb">
-                            <a :href="item.img" target="_blank"><img :src="item.img" width="600px" /></a>
-							<h2>{{ item.content }} @ By iPhone 12 mini</h2>
+                            <a :href="item.img" class="image"><img :src="item.img" width="600px" /></a>
+							<h2>{{ item.content }} <br>@ By iPhone 12 mini</h2>
 							<p>{{ item.ctime }}</p>
 						</article>
 					</div>
