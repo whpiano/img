@@ -1,36 +1,96 @@
 <!DOCTYPE HTML>
+<!--
+	Multiverse by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-<title>随手拍</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="icon" type="image/x-icon" href="ico.jpg">
-<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
-</head>
-<body>
-<h2>随手拍</h2>
-<p>使用iPhone捷径指令上传图片至GitHub，在deta.sh上搭建fastapi提供接口通过vue.js展示图片地址及配文到此页面。</p>
-<hr>
-<div id="main">
-<article v-for="item in getdata">
-<a :href="item.img" target="_blank"><img :src="item.img" width="600px" /></a>
-<p>{{ item.content }} @ {{ item.ctime }} By iPhone 12 mini</p>
-<hr>
-</article>
-</div>
-<script>
-    var vm = new Vue({
-        el: '#main', 
-        data:
-        {
-            getdata:'',
-        },
-        mounted()
-        {
-            axios.get('https://inote.zdl.im/hi').then(response=>(this.getdata = response.data));
-        },
-    });
-</script>
-</body>
+	<head>
+		<title>随手拍 - 记录网络生活</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="icon" type="image/x-icon" href="https://p.zdl.im/ico.jpg">
+		<link rel="stylesheet" href="https://p.zdl.im/assets/css/main.css " />
+		<noscript><link rel="stylesheet" href="https://p.zdl.im/assets/css/noscript.css " /></noscript>
+        <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Header -->
+            <header id="header">
+                <h1><a href=""><strong>随手拍</strong> by iPhone 12 mini</a></h1>
+                <nav>
+                    <ul>
+                        <li><a href="#footer" class="icon solid fa-info-circle">关于</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- Main -->
+            <!-- <div id="main">
+                {% for i in data.items %}
+                <article class="thumb">
+                    {% if i.img %}
+                    <a href="{{ i.img }}" class="image"><img src="{{ i.img }}" alt="" /></a>
+                    {% endif %}
+                    <h2>{{ i.ctime }}</h2>
+                    <p>{{ i.content }}</p>
+                </article>
+                {% endfor %}
+            </div> -->
+            <div id="main">
+                <article v-for="item in getdata" class="thumb">
+                    <a :href="item.img" target="_blank" class="image"><img :src="item.img" width="600px" /></a>
+                    <h2>{{ item.ctime }}</h2>
+                    <p>{{ item.content }}</p>
+                </article>
+            </div>
+            <!-- Footer -->
+            <footer id="footer" class="panel">
+                <div class="inner split">
+                    <div>
+                        <section>
+                            <h2>随手拍</h2>
+                            <p>使用iPhone捷径指令上传图片至GitHub，在deta.sh上搭建fastapi提供接口发布图片地址及配文到此页面。</p>
+                        </section>
+                        <section>
+                            <h2>Follow me on ...</h2>
+                            <ul class="icons">
+                                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                                <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                            </ul>
+                        </section>
+                        <p class="copyright">
+                            &copy; <a href="https://zdl.im">Sky</a>. Design: <a href="http://html5up.net" target="_blank" >HTML5 UP</a>.
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+		<!-- Scripts -->
+        <script>
+            var vm = new Vue({
+                el: '#main', 
+                data:
+                {
+                    getdata:'',
+                },
+                mounted()
+                {
+                    axios.get('https://inote.zdl.im/hi').then(response=>(this.getdata = response.data));
+                },
+            });
+        </script>
+        <script src="https://p.zdl.im/assets/js/jquery.min.js "></script>
+        <script src="https://p.zdl.im/assets/js/jquery.poptrox.min.js "></script>
+        <script src="https://p.zdl.im/assets/js/browser.min.js "></script>
+        <script src="https://p.zdl.im/assets/js/breakpoints.min.js "></script>
+        <script src="https://p.zdl.im/assets/js/util.js "></script>
+        <script src="https://p.zdl.im/assets/js/main.js "></script>
+	</body>
 </html>
