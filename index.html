@@ -1,96 +1,158 @@
-<!DOCTYPE HTML>
-<!--
-	Multiverse by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-	<title>随手拍 - 记录网络生活</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="icon" type="image/x-icon" href="https://p.zdl.im/ico.jpg">
-	<link rel="stylesheet" href="https://p.zdl.im/assets/css/main.css " />
-	<noscript><link rel="stylesheet" href="https://p.zdl.im/assets/css/noscript.css " /></noscript>
-        <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.9/vue.min.js"></script>
-        <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-        <div id="wrapper">
-            <!-- Header -->
-            <header id="header">
-                <h1><a href=""><strong>随手拍</strong> by iPhone 12 mini</a></h1>
-                <nav>
-                    <ul>
-                        <li><a href="#footer" class="icon solid fa-info-circle">关于</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <!-- Main -->
-            <!-- <div id="main">
-                {% for i in data.items %}
-                <article class="thumb">
-                    {% if i.img %}
-                    <a href="{{ i.img }}" class="image"><img src="{{ i.img }}" alt="" /></a>
-                    {% endif %}
-                    <h2>{{ i.ctime }}</h2>
-                    <p>{{ i.content }}</p>
-                </article>
-                {% endfor %}
-            </div> -->
-            <div id="main">
-                <article v-for="item in getdata" class="thumb">
-                    <a :href="item.img" target="_blank" class="image"><img :src="item.img" width="600px" /></a>
-                    <h2>{{ item.ctime }}</h2>
-                    <p>{{ item.content }}</p>
-                </article>
-            </div>
-            <!-- Footer -->
-            <footer id="footer" class="panel">
-                <div class="inner split">
-                    <div>
-                        <section>
-                            <h2>随手拍</h2>
-                            <p>使用iPhone捷径指令上传图片至GitHub，在deta.sh上搭建fastapi提供接口发布图片地址及配文到此页面。</p>
-                        </section>
-                        <section>
-                            <h2>Follow me on ...</h2>
-                            <ul class="icons">
-                                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                                <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-                                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-                                <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                            </ul>
-                        </section>
-                        <p class="copyright">
-                            &copy; <a href="https://zdl.im">Sky</a>. Design: <a href="http://html5up.net" target="_blank" >HTML5 UP</a>.
-                        </p>
-                    </div>
-                </div>
-            </footer>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>综合刷题训练营</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="bg-blur bg-blur-left"></div>
+  <div class="bg-blur bg-blur-right"></div>
+
+  <main class="app-shell">
+    <header class="hero">
+      <h1>综合刷题训练营</h1>
+      <p>支持生物与地理题库，按学科/年级快速筛选，错题重练更高效</p>
+    </header>
+
+    <section class="panel controls-panel">
+      <div>
+        <label class="label">题库快速筛选</label>
+        <div id="quickFilterBar" class="quick-filter-row">
+          <button class="btn btn-ghost btn-sm" data-source-filter="all">全选</button>
+          <button class="btn btn-ghost btn-sm" data-source-filter="subject:生物">仅生物</button>
+          <button class="btn btn-ghost btn-sm" data-source-filter="subject:地理">仅地理</button>
+          <button class="btn btn-ghost btn-sm" data-source-filter="grade:七年级">仅七年级</button>
+          <button class="btn btn-ghost btn-sm" data-source-filter="grade:八年级">仅八年级</button>
+          <button class="btn btn-ghost btn-sm" data-source-filter="none">清空</button>
         </div>
-		<!-- Scripts -->
-        <script>
-            var vm = new Vue({
-                el: '#main', 
-                data:
-                {
-                    getdata:'',
-                },
-                mounted()
-                {
-                    axios.get('https://api.zdl.im/hi').then(response=>(this.getdata = response.data));
-                },
-            });
-        </script>
-        <script src="https://p.zdl.im/assets/js/jquery.min.js "></script>
-        <script src="https://p.zdl.im/assets/js/jquery.poptrox.min.js "></script>
-        <script src="https://p.zdl.im/assets/js/browser.min.js "></script>
-        <script src="https://p.zdl.im/assets/js/breakpoints.min.js "></script>
-        <script src="https://p.zdl.im/assets/js/util.js "></script>
-        <script src="https://p.zdl.im/assets/js/main.js "></script>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label class="label">选择题库</label>
+          <div id="sourceList" class="chip-list"></div>
+          <p id="bankSummary" class="hint-text">题库加载中...</p>
+        </div>
+
+        <div>
+          <label class="label">题型筛选</label>
+          <div id="typeList" class="chip-list">
+            <label class="chip">
+              <input type="checkbox" value="choice" checked>
+              <span>选择题</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" value="judge" checked>
+              <span>判断题</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" value="blank" checked>
+              <span>填空题</span>
+            </label>
+          </div>
+          <p id="poolHint" class="hint-text">当前筛选池：0 题</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div>
+          <label for="questionCount" class="label">本轮题量</label>
+          <input id="questionCount" type="number" min="1" value="20">
+        </div>
+        <div>
+          <label for="orderMode" class="label">出题方式</label>
+          <select id="orderMode">
+            <option value="random">随机</option>
+            <option value="sequential">顺序</option>
+          </select>
+        </div>
+        <div>
+          <label for="autoNext" class="label">自动下一题</label>
+          <select id="autoNext">
+            <option value="off">关闭</option>
+            <option value="on">开启（判题后 1 秒）</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="keyword-row">
+        <div class="keyword-input-wrap">
+          <label for="keywordInput" class="label">关键词搜题（题干/解析/题库名）</label>
+          <input id="keywordInput" type="text" placeholder="例如：细胞、经纬网、光合作用">
+        </div>
+        <button id="clearKeywordBtn" class="btn btn-ghost">清空关键词</button>
+      </div>
+
+      <div class="action-row">
+        <button id="importDbBtn" class="btn btn-secondary">导入 CSV 到数据库</button>
+        <button id="loadBtn" class="btn btn-ghost">重新加载题库</button>
+        <button id="startBtn" class="btn btn-primary">开始练习</button>
+        <button id="wrongStartBtn" class="btn btn-secondary">错题重练</button>
+        <button id="exportWrongBtn" class="btn btn-ghost">导出错题 CSV</button>
+        <button id="clearWrongBtn" class="btn btn-danger">清空错题本</button>
+      </div>
+
+      <div class="import-row">
+        <p id="dataModeHint" class="hint-text">优先使用数据库模式；若无后端，将自动切换为静态题库模式。</p>
+      </div>
+    </section>
+
+    <section class="panel status-panel">
+      <div class="stats stats-5">
+        <div class="stat">
+          <span class="stat-name">总题数</span>
+          <span id="totalCount" class="stat-value">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-name">筛选池</span>
+          <span id="poolCountText" class="stat-value">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-name">当前进度</span>
+          <span id="progressText" class="stat-value">0 / 0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-name">正确率</span>
+          <span id="accuracyText" class="stat-value">0%</span>
+        </div>
+        <div class="stat">
+          <span class="stat-name">错题本</span>
+          <span id="wrongCountText" class="stat-value">0</span>
+        </div>
+      </div>
+      <div class="progress-track">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+      <p id="statusMessage" class="status-message">正在加载题库...</p>  
+    </section>
+
+    <section id="quizPanel" class="panel quiz-panel hidden">
+      <button id="focusToggleBtn" class="btn btn-ghost focus-toggle-btn hidden">返回配置</button>
+      <div class="quiz-header">
+        <div id="questionMeta" class="question-meta"></div>
+        <div id="questionIndex" class="question-index"></div>
+      </div>
+      <h2 id="questionText" class="question-text"></h2>
+      <div id="answerArea" class="answer-area"></div>
+
+      <div id="quizActionBar" class="action-row quiz-action-row">
+        <button id="submitBtn" class="btn btn-primary">提交答案</button>
+        <button id="revealBtn" class="btn btn-ghost">看答案</button>
+        <button id="nextBtn" class="btn btn-ghost">下一题</button>
+      </div>
+
+      <div id="resultBox" class="result-box hidden"></div>
+    </section>
+
+    <section id="summaryPanel" class="panel summary-panel hidden">
+      <h3>本轮完成</h3>
+      <p id="summaryText"></p>
+      <button id="restartBtn" class="btn btn-primary">再来一轮</button>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
 </body>
 </html>
